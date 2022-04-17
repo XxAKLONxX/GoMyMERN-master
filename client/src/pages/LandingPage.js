@@ -1,8 +1,13 @@
 import React from 'react'
+import Navigation from '../components/Navigation'
 
 function LandingPage() {
   return (
-    <div>LandingPage</div>
+
+    <div>
+     
+      <h1>lawqedaerf</h1></div>
+   
   )
 }
 

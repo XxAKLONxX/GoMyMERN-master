@@ -13,16 +13,19 @@ import ClientProfile from './pages/ClientProfile';
 import ClientView from './pages/ClientView';
 import EmployeeView from './pages/EmployeeView';
 import AdminView from './pages/AdminView';
+import Pending from './pages/Pending';
+import PrivateRoute from './routes/PrivateRoute';
+import Navme from './components/Navme';
 
 
 function App() {
   return (
     <div className="App">
     <h1>Main view</h1>
-    <Navigation/>
+      <Navme/>
     <Routes>
       <Route path='/' element={<LandingPage/>}/>
-      <Route path='/AdminView' element={<AdminView/>}/>
+      <Route path='/AdminView' element={<PrivateRoute><AdminView/></PrivateRoute>}/>
       <Route path='/ClientProfile' element={<ClientProfile/>}/>
       <Route path='/ClientTicket' element={<ClientView/>}/>
       <Route path='/ClientView' element={<ClientTicket/>}/>
@@ -30,6 +33,7 @@ function App() {
       <Route path='/EmployeeView' element={<EmployeeView/>}/>
       <Route path='/Signin' element={<Signin/>}/>
       <Route path='/Signup' element={<Signup/>}/>
+      <Route path='/Pending' element={<Pending/>}/>
       <Route path='*' element={<Error/>}/>
     </Routes>
  <Footer/>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FAIL, LOAD, SIGN_IN_USER } from '../actionType/user'
+import { FAIL, LOAD, LOG_OUT, SIGN_IN_USER } from '../actionType/user'
 
 
 
@@ -22,7 +22,7 @@ export const signup = (newUser) => async (dispatch) => {
 }
 
 
-export const Signin = (user)=>async(dispatch)=>{
+export const signin = (user)=>async(dispatch)=>{
     dispatch({type:LOAD})
     try {
         let result= await axios.post("/api/user/signinuser",user)

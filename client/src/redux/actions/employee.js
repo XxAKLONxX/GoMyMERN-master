@@ -38,6 +38,6 @@ export const Signin = (employee)=>async(dispatch)=>{
         
     }
 }
-export const logOut=()=>{
+export const logOutEmp=()=>{
     return {type:LOG_OUT}
 }
