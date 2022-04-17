@@ -1,0 +1,5 @@
+export const SIGN_IN_EMPLOYEE = "SIGN_IN_EMPLOYEE"
+export const SIGN_UP_EMPLOYEE = "SIGN_UP_EMPLOYEE"
+export const LOAD = "LOAD"
+export const FAIL = "FAIL"
+export const LOG_OUT = "LOG_OUT"
