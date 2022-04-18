@@ -5,7 +5,7 @@ import { FAIL, LOAD, SIGN_IN_EMPLOYEE } from '../actionType/employee'
 
 
 
-export const signup = (newEmployee) => async (dispatch) => {
+export const signupEmp = (newEmployee) => async (dispatch) => {
     dispatch({type:LOAD})
     try {
         let result= await axios.post("/api/employee/signupEmp",newEmployee)
@@ -22,7 +22,7 @@ export const signup = (newEmployee) => async (dispatch) => {
 }
 
 
-export const Signin = (employee)=>async(dispatch)=>{
+export const SigninEmp = (employee)=>async(dispatch)=>{
     dispatch({type:LOAD})
     try {
         let result= await axios.post("/api/employee/signinEmp",employee)

@@ -3,7 +3,7 @@ import { LOAD, SIGN_IN_ADMIN } from '../actionType/admin'
 
 
 
-export const Signin = (admin)=>async(dispatch)=>{
+export const SigninAd = (admin)=>async(dispatch)=>{
     dispatch({type:LOAD})
     try {
         let result= await axios.post("/api/admin/signinad",admin)

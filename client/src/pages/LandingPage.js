@@ -6,7 +6,7 @@ function LandingPage() {
 
     <div>
      
-      <h1>lawqedaerf</h1></div>
+      <h1>LandingPage</h1></div>
    
   )
 }

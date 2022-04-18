@@ -5,7 +5,7 @@ const { registerValidator, Validation, loginValidator } = require("../middleware
 
 const router = express.Router()
 
-// error not solved
+
 router.post("/signupuser",registerValidator(),Validation,signupUser)
 router.post("/signinuser",loginValidator(),Validation,signinUser)
 router.get("/current", isAuth, (req, res) => {
