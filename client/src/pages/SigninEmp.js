@@ -1,28 +1,38 @@
-import React from 'react';
-import {Form,Button} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import {signinEmp} from '../redux/actions/employee';
 
 
-function SigninEmp() {
-  return <div>
-         <Form>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
- 
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
-  </div>;
+
+const SigninEmp = () =>  {
+  const [employee, setEmployee] = useState({})
+  const dispatch = useDispatch()
+  const handleChange=(e)=>{
+    setEmployee({...employee,[e.target.name]:e.target.value})
+  }
+  return (
+    <div>
+      <h1>Employee Singin</h1>
+      <label htmlFor="email">E-mail</label>
+      <input
+        type="email"
+        placeholder="enter Email here"
+        name="email"
+        onChange={handleChange}
+      />
+      <label htmlFor="password">Password</label>
+      <input
+        type="password"
+        placeholder="enter Password here"
+        name="password"
+        onChange={handleChange}
+      />
+      <Link to={`/EmployeeProfile/${employee._id} `}><button onClick={() => dispatch(signinEmp(employee))}>Submit</button></Link>
+    </div>
+  );
 }
+
 
 export default SigninEmp;

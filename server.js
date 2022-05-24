@@ -13,6 +13,8 @@ app.use(express.json())
 app.use("/api/user",require("./routes/user"))
 app.use("/api/employee",require("./routes/employee"))
 app.use("/api/admin",require("./routes/admin"))
+app.use("/api/ticket",require("./routes/ticket"))
+
 
 const port = process.env.PORT;
 app.listen(port, (error) => {

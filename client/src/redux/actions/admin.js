@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { LOAD, SIGN_IN_ADMIN } from '../actionType/admin'
+import { FAIL, LOAD, SIGN_IN_ADMIN } from '../actionType/admin'
 
 
 

@@ -6,10 +6,10 @@ import {Link} from 'react-router-dom'
 
 
 const Signin = () =>{
-  const [newUser, setNewUser] = useState({})
+  const [user, setUser] = useState({})
   const dispatch = useDispatch()
   const handleChange=(e)=>{
-    setNewUser({...newUser,[e.target.name]:e.target.value})
+    setUser({...user,[e.target.name]:e.target.value})
   }
   return (
     <div>
@@ -28,7 +28,7 @@ const Signin = () =>{
         name="password"
         onChange={handleChange}
       />
-      <Link to={'/ClientProfile '}><button onClick={() => dispatch(signin(newUser))}>Submit</button></Link>
+      <Link to={'/ClientProfile '}><button onClick={() => dispatch(signin(user))}>Submit</button></Link>
     </div>
   );
 }

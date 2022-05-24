@@ -7,7 +7,7 @@ const ticketSchema = new Schema({
         required:true,
     },
     time:{
-        type:Number,
+        type:String,
         required:true,
     },
     comment:{

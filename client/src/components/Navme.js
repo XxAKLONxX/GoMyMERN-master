@@ -1,5 +1,7 @@
 import React from 'react';
 import {Navbar,Container,Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap';
+import {Link, link} from 'react-router-dom';
+;
 
 
 
@@ -15,19 +17,29 @@ function Navme() {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="#action1">Home</Nav.Link>
-        <Nav.Link href="#action2">News</Nav.Link>
+       
+      
+      
+      
+      <Link to='/'><Nav.Link href="#action1" >Home</Nav.Link></Link>  
+      <Link to='/Pending'><Nav.Link href="#action2">News</Nav.Link></Link>  
         <NavDropdown title="SignIn" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Signin as a Client</NavDropdown.Item>
+        <Link to='/Signin'> <NavDropdown.Item href="#action3">Signin as a Client</NavDropdown.Item></Link>
+        <NavDropdown.Divider />
+        <Link to='SigninEmp'>  <NavDropdown.Item href="#action4">Signin as an Employee</NavDropdown.Item></Link>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action4">Signin as an Employee</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action3">Signin as an Admin</NavDropdown.Item>
+          <Link to='SigninAD'>  <NavDropdown.Item href="#action5">Signin as an Admin</NavDropdown.Item> </Link>
         
         </NavDropdown>
-        <Nav.Link href="#" >
+        <NavDropdown title="SignUp" id="navbarScrollingDropdown">
+        <Link to='/SignUp'>  <NavDropdown.Item href="#action6" >
           SigneUP
-        </Nav.Link>
+        </NavDropdown.Item> </Link>
+        <NavDropdown.Divider />
+        <Link to='/SignupEmp'>  <NavDropdown.Item href="#action7" >
+          SigneUP As Employee
+        </NavDropdown.Item> </Link>
+        </NavDropdown>
       </Nav>
       <Form className="d-flex">
         <FormControl

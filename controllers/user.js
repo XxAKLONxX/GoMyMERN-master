@@ -8,6 +8,7 @@ exports.signupUser=async(req,res)=>{
        const { name, lastName,  email, phoneNo, password} = req.body
        const foundUser=await User.findOne({email})
        if((foundUser)){
+        console.log(foundUser)
            return res.status(400).send({errors:[{msg:"email already exist"}]})
        }
        const saltRounds = 10
@@ -18,6 +19,8 @@ exports.signupUser=async(req,res)=>{
        const token=jwt.sign({id:newUser._id},process.env.SECRET_KEY,{expiresIn:"100days"}) 
        
        return res.status(200).send({msg:"Account created waiting for validation" , user:newUser,token})
+       
+       
    } catch (error) {
     return res.status(400).send({msg:"Please retry"})
    }
@@ -39,3 +42,11 @@ exports.signinUser=async(req,res)=>{
     return res.status(400).send({msg:"Login failed"})
    }
 }
+exports.getuser=async (req, res) => {
+    try {
+      const users = await User.find();
+     return res.status(200).send({ msg: "liste", users });
+    } catch (error) {
+      res.status(400).send({ msg: "error", error });
+    }
+  };

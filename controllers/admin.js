@@ -4,7 +4,7 @@ const Admin=require("../model/Admin")
 exports.signinAd=async(req,res)=>{
    try {
        const {email,password} = req.body
-       const foundAdmin= await Admin.findOne({email})
+       const foundAdmin= await Admin.findOne({email,password})
        if(!foundAdmin){
         return res.status(400).send({errors:[{msg:"Wrong Data"}]})
        }

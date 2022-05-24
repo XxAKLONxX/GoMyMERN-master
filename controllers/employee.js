@@ -8,7 +8,7 @@ const bcrypt=require('bcrypt')
 
 exports.signupEmployee=async(req,res)=>{
    try {
-       const { name, lastName,  email, phoneNo, password} = req.body
+       const { name, lastName,  email, password} = req.body
        const foundEmployee=await Employee.findOne({email})
        if((foundEmployee)){
            return res.status(400).send({errors:[{msg:"email already exist"}]})
@@ -44,3 +44,23 @@ exports.signinEmployee=async(req,res)=>{
     return res.status(400).send({msg:"Login failed"})
    }
 }
+exports.getemployee=async (req, res) => {
+    try {
+      const employees = await Employee.find();
+     return res.status(200).send({ msg: "liste", employees });
+    } catch (error) {
+      res.status(400).send({ msg: "error", error });
+    }
+  };
+  exports.getOneEmployee=async(req,res)=>{
+    try {
+      const foundEmployee = await Employee.findById(req.params.id);
+      if (!foundEmployee) {
+        return res.status(400).send({ errors: [{ msg: "failed" }] });
+      }
+      
+      return res.status(200).send({ msg: "done ", foundEmployee: foundEmployee });
+    } catch (error) {
+      return res.status(400).send({ msg: "error get " });
+    }
+  }

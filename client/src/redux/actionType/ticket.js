@@ -1,0 +1,6 @@
+export const ADD_TICKET="ADD_TICKET"
+export const EDIT_TICKET="EDIT_TICKET"
+export const LOAD_TICKET="LOAD_TICKET"
+export const FAIL_TICKET="FAIL_TICKET"
+export const GET_TICKET="GET_TICKET"
+export const DELETE_TICKET="DELETE_TICKET"

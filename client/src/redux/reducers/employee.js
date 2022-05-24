@@ -1,32 +1,38 @@
-import {SIGN_IN_EMPLOYEE,SIGN_UP_EMPLOYEE,LOAD, FAIL, LOG_OUT} from '../actionType/employee'
+import {SIGN_IN_EMPLOYEE,SIGN_UP_EMPLOYEE,LOADEMP, FAILEMP, LOG_OUT, GET_EMP, GET_ONE_EMP} from '../actionType/employee'
 
 
 
 const initialState={
-    user:{},
+    employee:{},
     load:false,
     errors:[],
-    isAuth:false
+    isAuthEmp:false,
+    employees:
+    []
 }
 const employeeReducer = (state=initialState,{type,payload})=>{
     switch (type) {
-        case LOAD:
+        case LOADEMP:
             return{...state,load:true}
         case SIGN_IN_EMPLOYEE:
             localStorage.setItem("token",payload.token)
-            return{...state,load:false,user:payload.user,isAuth:true}    
+            return{...state,load:false,employee:payload.employee,isAuthEmp:true}    
         case SIGN_UP_EMPLOYEE:
             localStorage.setItem("token",payload.token)
-            return{...state,load:false,user:payload.user,isAuth:true}    
-        case FAIL:
-            return{...state,load:false,errors:payload}     
+            return{...state,load:false,employee:payload.employee,isAuthEmp:true}    
+        case FAILEMP:
+            return{...state,load:false,isAuthEmp:false,errors:payload}    
+        case GET_EMP:
+            return {...state, load: false, employees: payload.employees}; 
+        case GET_ONE_EMP:
+            return {...state, load: false, employee: payload.employee}; 
         case LOG_OUT:
             localStorage.removeItem("token")
             return{
-            user:{},
+            employee:{},
             load:false,
             errors:[],
-            isAuth:false
+            isAuthEmp:false
         }
         default:
             return state

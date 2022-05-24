@@ -1,12 +1,12 @@
 import {SIGN_IN_ADMIN,LOAD, FAIL, LOG_OUT} from '../actionType/admin'
 
 
-
 const initialState={
-    user:{},
+    admin:{},
     load:false,
     errors:[],
-    isAuth:false
+    isAuthAd
+:false
 }
 const adminReducer = (state=initialState,{type,payload})=>{
     switch (type) {
@@ -14,16 +14,19 @@ const adminReducer = (state=initialState,{type,payload})=>{
             return{...state,load:true}
         case SIGN_IN_ADMIN:
             localStorage.setItem("token",payload.token)
-            return{...state,load:false,user:payload.user,isAuth:true}        
+            return{...state,load:false,admin:payload.admin,isAuthAd
+:true}        
         case FAIL:
-            return{...state,load:false,errors:payload}     
+            return{...state,load:false, isAuthAd
+                :false,errors:payload}     
         case LOG_OUT:
             localStorage.removeItem("token")
             return{
-            user:{},
+            admin:{},
             load:false,
             errors:[],
-            isAuth:false
+            isAuthAd
+:false
         }
         default:
             return state
